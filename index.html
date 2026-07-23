@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chen Family 2026 · Budapest → Hévíz → Bled → Budapest</title>
+<title>Chen Family 2026 · <span class="wiki-tip" data-wiki="Budapest">Budapest</span> → Hévíz → Bled → Budapest</title>
 <meta name="description" content="Chen family vacation Aug 13–30 2026. Day-by-day itinerary, apartments, tickets, opening hours, rainy-day backup and packing list.">
 <meta name="theme-color" content="#0f766e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -173,6 +173,24 @@
   footer{border-top:1px solid var(--line);padding:36px 0 44px;margin-top:24px;color:var(--ink-3);font-size:.85rem;text-align:center}
   @media (max-width:640px){section{padding:46px 0}.day-body,.card-body,.pack{padding:17px}.stat{flex:1;min-width:calc(50% - 5px)}}
   @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1!important;transform:none!important}.banner img{transform:none!important}}
+
+  /* ── Language toggle ── */
+  #langBtn{transition:.2s}
+  header.solid #langBtn{background:var(--surface-2)!important;border-color:var(--line)!important;color:var(--ink)!important}
+  body.he{direction:rtl;font-family:'Inter','Arial Hebrew',sans-serif}
+  body.he .day li::before{inset-inline-start:0}
+  body.he .banner-txt{text-align:right}
+  /* ── Wikipedia tooltip ── */
+  .wiki-tip{cursor:help;border-bottom:1px dashed var(--brand)}
+  .wiki-tip:hover{border-bottom-style:solid}
+  #wiki-pop{position:fixed;z-index:9999;width:300px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 40px -8px rgba(0,0,0,.35);overflow:hidden;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;transform:translateY(6px);font-size:.87rem;line-height:1.55}
+  #wiki-pop.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+  #wiki-pop img{width:100%;height:120px;object-fit:cover;display:block}
+  #wiki-pop .wb{padding:12px 15px 14px}
+  #wiki-pop .wt{font-weight:800;font-size:.93rem;color:var(--ink);margin-bottom:4px}
+  #wiki-pop .we{color:var(--ink-2);font-size:.82rem;max-height:110px;overflow-y:auto}
+  #wiki-pop .wl{display:inline-block;margin-top:9px;font-size:.77rem;color:var(--brand-ink);font-weight:700;text-decoration:none}
+  #wiki-pop .ws{padding:20px;text-align:center;color:var(--ink-3);font-size:.83rem}
 </style>
 </head>
 <body>
@@ -181,15 +199,16 @@
   <div class="logo">🏔️ Chen <span>2026</span></div>
   <ul>
     <li><a href="#seg-1">🇭🇺 Hévíz</a></li>
-    <li><a href="#seg-2">🇸🇮 Terme 3000</a></li>
+    <li><a href="#seg-2">🇸🇮 <span class="wiki-tip" data-wiki="Terme 3000">Terme 3000</span></a></li>
     <li><a href="#seg-3">🇸🇮 Bled</a></li>
     <li><a href="#seg-4">🇭🇺 Budapest</a></li>
-    <li><a href="#hotels">Apartments</a></li>
-    <li><a href="#tickets">Tickets</a></li>
-    <li><a href="#hours">Hours</a></li>
-    <li><a href="#rain">Rainy days</a></li>
-    <li><a href="#pack">Packing</a></li>
+    <li><a href="#hotels" data-i18n="Apartments">Apartments</a></li>
+    <li><a href="#tickets" data-i18n="Tickets">Tickets</a></li>
+    <li><a href="#hours" data-i18n="Hours">Hours</a></li>
+    <li><a href="#rain" data-i18n="Rainy days">Rainy days</a></li>
+    <li><a href="#pack" data-i18n="Packing">Packing</a></li>
     <li><a href="maps.html">🗺️ Maps</a></li>
+  <li><button id="langBtn" onclick="toggleLang()" style="background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);color:#fff;font:700 .82rem/1 inherit;padding:6px 13px;border-radius:99px;cursor:pointer;transition:.2s;white-space:nowrap;">🇮🇱 עברית</button></li>
   </ul>
 </div></header>
 
@@ -211,10 +230,10 @@
     </div>
     <div class="stats rv">
       <div class="stat count"><b id="countdown">—</b><small>days to go</small></div>
-      <div class="stat"><b data-to="17">0</b><small>nights</small></div>
-      <div class="stat"><b data-to="4">0</b><small>bases</small></div>
-      <div class="stat"><b data-to="3">0</b><small>moves</small></div>
-      <div class="stat"><b data-to="18">0</b><small>days of fun</small></div>
+      <div class="stat"><b data-to="17">0</b><small data-i18n="nights">nights</small></div>
+      <div class="stat"><b data-to="4">0</b><small data-i18n="bases">bases</small></div>
+      <div class="stat"><b data-to="3">0</b><small data-i18n="moves">moves</small></div>
+      <div class="stat"><b data-to="18">0</b><small data-i18n="days of fun">days of fun</small></div>
     </div>
   </div>
 </section>
@@ -225,7 +244,7 @@
     <div class="banner-txt">
       <span class="k">BASE 1 · AUG 13–15 · 3 NIGHTS</span>
       <h2>🌊 Hévíz, Hungary</h2>
-      <p>Europe's largest thermal lake, Lake Balaton day trip, and the Festetics Palace — a gentle warm start after landing.</p>
+      <p>Europe's largest thermal lake, <span class="wiki-tip" data-wiki="Lake Balaton">Lake Balaton</span> day trip, and the <span class="wiki-tip" data-wiki="Festetics Palace">Festetics Palace</span> — a gentle warm start after landing.</p>
     </div>
   </div>
   <div class="info rv"><span class="ico">💡</span><div><b>Getting here:</b> Land Budapest (BUD), pick up rental car (5-seat wagon/SUV), drive ~2h to Hévíz. Buy the <b>Hungarian e-matrica</b> motorway vignette online before the trip. Grab groceries at a Spar on the way in.</div></div>
@@ -250,7 +269,7 @@
     <article class="day water rv">
       <div class="day-pic"><img src="img/banner_heviz.jpg" alt="day_heviz" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <div class="day-body">
-        <div class="day-top"><div><span class="date">Fri · Aug 14</span><h3>Lake Hévíz + Festetics Palace</h3></div>
+        <div class="day-top"><div><span class="date">Fri · Aug 14</span><h3><span class="wiki-tip" data-wiki="Hévíz">Lake Hévíz</span> + Festetics Palace</h3></div>
           <div class="drive walk"><span class="lbl">WALK</span><b>5</b><small>min to lake</small></div></div>
         <p>Morning float in the famous warm thermal lake — the water is 22–38°C, black mineral-rich, and unique in Europe. Shallow roped zone great for Aviv. Afternoon: drive 10 min to Keszthely for the baroque Festetics Palace and its stunning Helikon Library.</p>
         <ul>
@@ -267,7 +286,7 @@
     <article class="day rv">
       <div class="day-pic"><img src="img/day_balaton.jpg" alt="day_balaton" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <div class="day-body">
-        <div class="day-top"><div><span class="date">Sat · Aug 15</span><h3>Balaton Beach + Tihany Peninsula</h3></div>
+        <div class="day-top"><div><span class="date">Sat · Aug 15</span><h3>Balaton Beach + <span class="wiki-tip" data-wiki="Tihany">Tihany Peninsula</span></h3></div>
           <div class="drive"><span class="lbl">DRIVE</span><b>50</b><small>min (Siófok)</small></div></div>
         <p>South shore of Lake Balaton — shallow, warm, and extends far out, ideal for a 5-year-old. Pedal boats, beach bars, playground. On the way back stop at the dramatic Tihany Peninsula — abbey views, lavender fields, and the famous echo hill.</p>
         <ul>
@@ -289,8 +308,8 @@
   <div class="banner grad sun rv"><img src="img/banner_terme.jpg" alt="banner_terme" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" loading="lazy"><span class="big">♨️</span>
     <div class="banner-txt">
       <span class="k">BASE 2 · AUG 16–19 · 4 NIGHTS</span>
-      <h2>♨️ Moravske Toplice, Slovenia</h2>
-      <p>Terme 3000 water park on the doorstep, a day trip into Austria for the Graz mountain slide, and medieval Ptuj.</p>
+      <h2>♨️ <span class="wiki-tip" data-wiki="Moravske Toplice">Moravske Toplice</span>, Slovenia</h2>
+      <p>Terme 3000 water park on the doorstep, a day trip into Austria for the <span class="wiki-tip" data-wiki="Graz">Graz</span> mountain slide, and medieval Ptuj.</p>
     </div>
   </div>
   <div class="info rv"><span class="ico">💡</span><div><b>Drive from Hévíz:</b> ~1h 45min west. Buy the <b>Slovenian e-vignette</b> (eVinjeta.si) before entering Slovenia — mandatory on all motorways. The Terme 3000 area is in Prekmurje, Slovenia's northeast corner.</div></div>
@@ -317,7 +336,7 @@
       <div class="day-body">
         <div class="day-top"><div><span class="date">Mon · Aug 17</span><h3>Graz Day Trip — Schlossberg Slide!</h3></div>
           <div class="drive"><span class="lbl">DRIVE</span><b>1:28</b><small>each way</small></div></div>
-        <p>Austria day! Drive to Graz for the <b>Schlossbergrutsche</b> — a 64m slide built inside a mountain, the world's tallest indoor slide. Noga and Inbar will go again and again. Then the Schlossberg clock tower funicular for panoramic rooftop views over the red-tiled city. Walk the old town for lunch.</p>
+        <p>Austria day! Drive to Graz for the <b><span class="wiki-tip" data-wiki="Schlossberg (Graz)">Schlossbergrutsche</span></b> — a 64m slide built inside a mountain, the world's tallest indoor slide. Noga and Inbar will go again and again. Then the Schlossberg clock tower funicular for panoramic rooftop views over the red-tiled city. Walk the old town for lunch.</p>
         <ul>
           <li>Schlossbergrutsche slide: ~€6.50 adult / ~€4 child — family ~€25</li>
           <li>Funicular up: ~€3.50 adult / ~€2 child</li>
@@ -334,7 +353,7 @@
     <article class="day rv">
       <div class="day-pic"><img src="img/day_ptuj.jpg" alt="day_ptuj" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <div class="day-body">
-        <div class="day-top"><div><span class="date">Tue · Aug 18</span><h3>Vinarium Tower + Ptuj Old Town</h3></div>
+        <div class="day-top"><div><span class="date">Tue · Aug 18</span><h3><span class="wiki-tip" data-wiki="Vinarium Tower Lendava">Vinarium Tower</span> + <span class="wiki-tip" data-wiki="Ptuj">Ptuj Old Town</span></h3></div>
           <div class="drive"><span class="lbl">DRIVE</span><b>28</b><small>min (Lendava)</small></div></div>
         <p>Morning: drive 28 min south to the <b>Vinarium Tower</b> in Lendava — a 53m wine-region lookout where you can see 4 countries (Slovenia, Hungary, Croatia, Austria) at once. Kids love the elevator + the "I see 4 countries!" moment. Afternoon: swing through <b>Ptuj</b>, Slovenia's oldest town — a compact, photogenic hilltop castle and lovely pedestrian old town.</p>
         <ul>
@@ -375,7 +394,7 @@
       <p>The scenic crown of the trip — island boat rides, cliff-top castle, Alpine gorges, toboggan run, and Austria just over the hills.</p>
     </div>
   </div>
-  <div class="warn rv"><span class="ico">⚠️</span><div><b>Book before you go:</b> <b>Postojna Cave</b> tours sell out — buy online. <b>Vogel Cable Car</b> is weather-dependent. <b>Vintgar Gorge:</b> arrive before 09:30 in August to avoid queues.</div></div>
+  <div class="warn rv"><span class="ico">⚠️</span><div><b>Book before you go:</b> <b><span class="wiki-tip" data-wiki="Postojna Cave">Postojna Cave</span></b> tours sell out — buy online. <b><span class="wiki-tip" data-wiki="Vogel (ski resort)">Vogel Cable Car</span></b> is weather-dependent. <b><span class="wiki-tip" data-wiki="Vintgar Gorge">Vintgar Gorge</span>:</b> arrive before 09:30 in August to avoid queues.</div></div>
   <div class="days">
 
     <article class="day travel rv">
@@ -397,7 +416,7 @@
     <article class="day highlight rv">
       <div class="day-pic"><img src="img/banner_bled.jpg" alt="day_island" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <div class="day-body">
-        <div class="day-top"><div><span class="date">Fri · Aug 21</span><h3>Pletna Boat to Bled Island + Bled Castle</h3></div>
+        <div class="day-top"><div><span class="date">Fri · Aug 21</span><h3>Pletna Boat to <span class="wiki-tip" data-wiki="Bled Island">Bled Island</span> + <span class="wiki-tip" data-wiki="Bled Castle">Bled Castle</span></h3></div>
           <div class="drive"><span class="lbl">DRIVE</span><b>5</b><small>min to dock</small></div></div>
         <p>Morning: take a traditional pletna flat-boat to Bled Island — the iconic church visit, climb the 99 steps, ring the wishing bell (every family member gets a wish!). Afternoon: hike or drive up to Bled Castle for the best aerial view of the lake + museum visit.</p>
         <ul>
@@ -415,7 +434,7 @@
     <article class="day rv">
       <div class="day-pic"><img src="img/day_bohinj.jpg" alt="day_bohinj" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <div class="day-body">
-        <div class="day-top"><div><span class="date">Sat · Aug 22</span><h3>Lake Bohinj + Vogel Cable Car</h3></div>
+        <div class="day-top"><div><span class="date">Sat · Aug 22</span><h3><span class="wiki-tip" data-wiki="Lake Bohinj">Lake Bohinj</span> + Vogel Cable Car</h3></div>
           <div class="drive"><span class="lbl">DRIVE</span><b>30</b><small>min west</small></div></div>
         <p>Quieter, wilder Lake Bohinj inside Triglav National Park — turquoise glacier water, mountain backdrop, and you can wild-swim right from the shore. Then take the Vogel cable car to 1535m altitude for big, sweeping Julian Alps panoramas — the best mountain views of the whole trip.</p>
         <ul>
@@ -433,7 +452,7 @@
     <article class="day rv">
       <div class="day-pic"><img src="img/day_vintgar.jpg" alt="day_vintgar" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <div class="day-body">
-        <div class="day-top"><div><span class="date">Sun · Aug 23</span><h3>Vintgar Gorge (early!) + Straža Toboggan</h3></div>
+        <div class="day-top"><div><span class="date">Sun · Aug 23</span><h3>Vintgar Gorge (early!) + <span class="wiki-tip" data-wiki="Straža, Bled">Straža</span> Toboggan</h3></div>
           <div class="drive"><span class="lbl">DRIVE</span><b>12</b><small>min (gorge)</small></div></div>
         <p>Start at Vintgar Gorge <b>before 09:30</b> — a stunning 1.6km boardwalk over emerald water. Crowds arrive after 10am. Back for lunch, then afternoon at Straža summer toboggan run on the Bled hillside — Aviv rides tandem with you, Noga and Inbar can solo.</p>
         <ul>
@@ -450,7 +469,7 @@
     <article class="day highlight rv">
       <div class="day-pic"><img src="img/day_worthersee.jpg" alt="day_worthersee" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <div class="day-body">
-        <div class="day-top"><div><span class="date">Mon · Aug 24</span><h3>Austria Day — Wörthersee + Minimundus</h3></div>
+        <div class="day-top"><div><span class="date">Mon · Aug 24</span><h3>Austria Day — <span class="wiki-tip" data-wiki="Wörthersee">Wörthersee</span> + <span class="wiki-tip" data-wiki="Minimundus">Minimundus</span></h3></div>
           <div class="drive"><span class="lbl">DRIVE</span><b>1:15</b><small>each way</small></div></div>
         <p>Cross into Austria for a double-header at Klagenfurt lake: <b>Wörthersee</b> warm Alpine lake swim (~26°C in August) then <b>Minimundus</b> miniature world — 170 scale models of world monuments, the kids will spot things they know. Both are on the same lakeshore.</p>
         <ul>
@@ -467,7 +486,7 @@
     <article class="day rv">
       <div class="day-pic"><img src="img/day_postojna.jpg" alt="day_postojna" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <div class="day-body">
-        <div class="day-top"><div><span class="date">Tue · Aug 25</span><h3>Flex Day — Postojna Cave OR Ljubljana OR Lake Day</h3></div>
+        <div class="day-top"><div><span class="date">Tue · Aug 25</span><h3>Flex Day — Postojna Cave OR <span class="wiki-tip" data-wiki="Ljubljana">Ljubljana</span> OR Lake Day</h3></div>
           <div class="drive"><span class="lbl">DRIVE</span><b>55–70</b><small>min either way</small></div></div>
         <p>Pick one based on energy and weather:</p>
         <ul>
@@ -490,7 +509,7 @@
     <div class="banner-txt">
       <span class="k">BASE 4 · AUG 26–29 · 4 NIGHTS</span>
       <h2>🏙️ Budapest, Hungary</h2>
-      <p>Grand finale — Aquaworld, Széchenyi baths, Buda Castle views, Margaret Island, and the Great Market Hall before flying home.</p>
+      <p>Grand finale — <span class="wiki-tip" data-wiki="Aquaworld Budapest">Aquaworld</span>, <span class="wiki-tip" data-wiki="Széchenyi thermal bath">Széchenyi</span> baths, Buda Castle views, <span class="wiki-tip" data-wiki="Margaret Island">Margaret Island</span>, and the <span class="wiki-tip" data-wiki="Great Market Hall">Great Market Hall</span> before flying home.</p>
     </div>
   </div>
   <div class="info rv"><span class="ico">💡</span><div><b>Drive from Bled:</b> ~3h 30min northeast. <b>Return the rental car</b> on Aug 30 at Budapest Airport — budget 1h extra for drop-off + check-in. Airport is only 30 min from the city center.</div></div>
@@ -532,7 +551,7 @@
     <article class="day rv">
       <div class="day-pic"><img src="img/day_bastion.jpg" alt="day_bastion" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <div class="day-body">
-        <div class="day-top"><div><span class="date">Fri · Aug 28</span><h3>Buda Castle + Fisherman's Bastion + Széchenyi Baths</h3></div>
+        <div class="day-top"><div><span class="date">Fri · Aug 28</span><h3>Buda Castle + <span class="wiki-tip" data-wiki="Fisherman's Bastion">Fisherman's Bastion</span> + Széchenyi Baths</h3></div>
           <div class="drive"><span class="lbl">DRIVE</span><b>10</b><small>min to Buda</small></div></div>
         <p>Morning on the Buda hill: neo-Gothic Fisherman's Bastion (best Danube + Parliament view in the city), Matthias Church, and the Castle District. Afternoon: cross to Pest for the iconic Széchenyi yellow palace baths — outdoor thermal pools, chess players, unforgettable Budapest moment.</p>
         <ul>
@@ -551,7 +570,7 @@
       <div class="day-body">
         <div class="day-top"><div><span class="date">Sat · Aug 29</span><h3>Margaret Island + Market Hall + Final Dinner</h3></div>
           <div class="drive"><span class="lbl">DRIVE</span><b>14</b><small>min</small></div></div>
-        <p>Morning: Margaret Island — car-free, musical fountain (Aviv will be soaked), playground, rose garden. Optional dip at <b>Palatinus water park</b> on the island. Afternoon: <b>Great Market Hall</b> for lángos lunch and paprika/souvenir shopping. Final dinner at Rosenstein or Hungarikum Bisztró.</p>
+        <p>Morning: Margaret Island — car-free, musical fountain (Aviv will be soaked), playground, rose garden. Optional dip at <b><span class="wiki-tip" data-wiki="Palatinus water park">Palatinus</span> water park</b> on the island. Afternoon: <b>Great Market Hall</b> for lángos lunch and paprika/souvenir shopping. Final dinner at Rosenstein or Hungarikum Bisztró.</p>
         <ul>
           <li>Margaret Island: free access · Palatinus water park ~€16 adult / ~€10 child</li>
           <li>Musical fountain: runs hourly in summer — time your visit</li>
@@ -909,5 +928,82 @@
   document.getElementById('reset').addEventListener('click',function(){boxes.forEach(function(b,i){b.checked=false;localStorage.removeItem('pack-'+i);});});
 })();
 </script>
+<div id="wiki-pop" role="tooltip"></div>
+<script>
+// ── i18n ──────────────────────────────────────────────────────────────────
+const HE={
+  'Apartments':'דירות','Tickets':'כרטיסים','Rainy days':'ימי גשם','Packing':'מה לארוז',
+  'nights':'לילות','bases':'בסיסים','moves':'מעברים','days of fun':'ימי כיף',
+};
+let lang='en';
+function toggleLang(){
+  lang=lang==='en'?'he':'en';
+  document.body.classList.toggle('he',lang==='he');
+  document.getElementById('langBtn').textContent=lang==='he'?'🇬🇧 English':'🇮🇱 עברית';
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    el.textContent=lang==='he'&&HE[k]?HE[k]:k;
+  });
+}
+// ── Wikipedia tooltip ────────────────────────────────────────────────────
+const pop=document.getElementById('wiki-pop');
+const wc={};
+let ht=null;
+
+function posPop(rect){
+  const pad=14,pw=300,ph=260;
+  let l=rect.left,t=rect.bottom+6;
+  if(l+pw>window.innerWidth-pad)l=window.innerWidth-pw-pad;
+  if(t+ph>window.innerHeight-pad)t=rect.top-ph-6;
+  if(t<pad)t=pad;
+  if(l<pad)l=pad;
+  pop.style.left=l+'px';
+  pop.style.top=t+'px';
+}
+function showPop(rect,inner){
+  clearTimeout(ht);
+  pop.innerHTML=inner;
+  pop.classList.add('show');
+  posPop(rect);
+}
+function hidePop(){ht=setTimeout(()=>pop.classList.remove('show'),200);}
+
+pop.addEventListener('mouseenter',()=>clearTimeout(ht));
+pop.addEventListener('mouseleave',hidePop);
+
+async function getWiki(article){
+  if(wc[article])return wc[article];
+  try{
+    const r=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(article));
+    const d=await r.json();
+    wc[article]={
+      title:d.displaytitle||d.title||article,
+      extract:(d.extract||'').slice(0,260)+((d.extract||'').length>260?'…':''),
+      img:d.thumbnail?d.thumbnail.source:null,
+      link:d.content_urls?.desktop?.page||'https://en.wikipedia.org/wiki/'+encodeURIComponent(article)
+    };
+  }catch(e){wc[article]={title:article.replace(/_/g,' '),extract:'No summary available.',img:null,link:'#'};}
+  return wc[article];
+}
+
+document.addEventListener('mouseover',async e=>{
+  const tip=e.target.closest('.wiki-tip');
+  if(!tip)return;
+  const article=tip.dataset.wiki;
+  const rect=tip.getBoundingClientRect();
+  showPop(rect,'<div class="ws">Loading…</div>');
+  const d=await getWiki(article);
+  if(document.querySelector('.wiki-tip:hover,.wiki-tip:focus')||pop.matches(':hover')){
+    showPop(rect,
+      (d.img?`<img src="${d.img}" alt="${d.title}" loading="lazy">`:'')
+      +`<div class="wb"><div class="wt">${d.title}</div><div class="we">${d.extract}</div>`
+      +`<a class="wl" href="${d.link}" target="_blank" rel="noopener">Wikipedia →</a></div>`
+    );
+  }
+});
+document.addEventListener('mouseleave',e=>{if(e.target.closest&&e.target.closest('.wiki-tip'))hidePop();},true);
+</script>
+
 </body>
 </html>
