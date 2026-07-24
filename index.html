@@ -191,6 +191,24 @@
   #wiki-pop .we{color:var(--ink-2);font-size:.82rem;max-height:110px;overflow-y:auto}
   #wiki-pop .wl{display:inline-block;margin-top:9px;font-size:.77rem;color:var(--brand-ink);font-weight:700;text-decoration:none}
   #wiki-pop .ws{padding:20px;text-align:center;color:var(--ink-3);font-size:.83rem}
+
+/* Riddle button */
+.riddle-btn{display:inline-flex;align-items:center;gap:.35rem;margin-top:.75rem;padding:.4rem .9rem;background:#312e81;color:#c7d2fe;border:1px solid #4338ca;border-radius:8px;font-size:.82rem;cursor:pointer;transition:background .15s;}
+.riddle-btn:hover{background:#4338ca;}
+/* Riddle level buttons */
+.rlvl{padding:.45rem 1rem;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#94a3b8;cursor:pointer;font-size:.85rem;transition:all .15s;}
+.rlvl.active{background:#6366f1;color:#fff;border-color:#6366f1;}
+/* Phrase lang buttons */
+.plng{padding:.45rem 1rem;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#94a3b8;cursor:pointer;font-size:.85rem;transition:all .15s;}
+.plng.active{background:#0284c7;color:#fff;border-color:#0284c7;}
+/* Checklist items */
+.chk-item{display:flex;align-items:center;gap:.5rem;padding:.25rem 0;cursor:pointer;color:#cbd5e1;}
+.chk-item.done{text-decoration:line-through;color:#475569;}
+.chk-item input[type=checkbox]{width:16px;height:16px;accent-color:#6366f1;cursor:pointer;}
+/* Phrase btn in header */
+#phraseNavBtn{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:6px;padding:.3rem .7rem;cursor:pointer;font-size:.8rem;}
+#phraseNavBtn:hover{background:rgba(255,255,255,.25);}
+
 </style>
 </head>
 <body>
@@ -208,6 +226,7 @@
     <li><a href="#rain" data-i18n="Rainy days">Rainy days</a></li>
     <li><a href="#pack" data-i18n="Packing">Packing</a></li>
     <li><a href="maps.html">🗺️ Maps</a></li>
+  <li><button id="phraseNavBtn" onclick="openPhrases()">🗣️ Phrases</button></li>
   <li><button id="langBtn" onclick="toggleLang()" style="background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);color:#fff;font:700 .82rem/1 inherit;padding:6px 13px;border-radius:99px;cursor:pointer;transition:.2s;white-space:nowrap;">🇮🇱 עברית</button></li>
   </ul>
 </div></header>
@@ -239,6 +258,8 @@
 </section>
 
 <!-- ==================== BASE 1: HÉVÍZ ==================== -->
+
+<div id="daybanner" style="background:linear-gradient(90deg,#1e3a5f,#1e293b);border-bottom:1px solid #334155;padding:.75rem 0;text-align:center;"><div class="wrap" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;"><div id="daycount" style="font-size:1.05rem;color:#f1f5f9;font-weight:600;"></div><div id="dayprog" style="flex:1;min-width:160px;max-width:300px;background:#334155;border-radius:99px;height:8px;overflow:hidden;"><div id="dayfill" style="height:100%;background:linear-gradient(90deg,#6366f1,#22d3ee);border-radius:99px;transition:width .5s;"></div></div><div id="daycheck" style="font-size:.85rem;color:#94a3b8;"></div></div></div>
 <section id="seg-1"><div class="wrap">
   <div class="banner grad rv"><img src="img/banner_heviz.jpg" alt="banner_heviz" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" loading="lazy"><span class="big">🌊</span>
     <div class="banner-txt">
@@ -264,7 +285,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=46.7907,17.1886&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Navigate to Hévíz</a>
         <div class="tags"><span class="tag">Arrival day</span><span class="tag hours">🕘 Check-in from 15:00</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(0)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day water rv">
       <div class="day-pic"><img src="img/banner_heviz.jpg" alt="day_heviz" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -281,7 +304,9 @@
         <div class="alt"><b>If it rains:</b> The indoor thermal pool section of Hévíz is fully covered. <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=46.7934,17.1872&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Lake Hévíz</a></div>
         <div class="tags"><span class="tag pay">Paid</span><span class="tag water">💧 Thermal</span><span class="tag hours">🕘 Lake: 09:00–17:30</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(1)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day rv">
       <div class="day-pic"><img src="img/day_balaton.jpg" alt="day_balaton" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -298,7 +323,9 @@
         <div class="alt"><b>If it rains:</b> Festetics Palace (if missed yesterday) or chill morning in the apartment + Hévíz town walk.</div>
         <div class="tags"><span class="tag free">Free beach</span><span class="tag water">💧 Lake swim</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(2)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
   </div>
 </div></section>
@@ -329,7 +356,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=46.685,16.2215&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Navigate to Moravske Toplice</a>
         <div class="tags"><span class="tag water">💧 Thermal</span><span class="tag hours">🕘 Terme: 09:00–21:00</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(3)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day highlight rv">
       <div class="day-pic"><img src="img/day_graz.jpg" alt="day_graz" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -348,7 +377,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=47.0697,15.438&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Schlossbergrutsche, Graz</a>
         <div class="tags"><span class="tag pay">Paid</span><span class="tag">🇦🇹 Austria day</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(4)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day rv">
       <div class="day-pic"><img src="img/day_ptuj.jpg" alt="day_ptuj" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -364,7 +395,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=46.5718,16.4538&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Vinarium Tower, Lendava</a>
         <div class="tags"><span class="tag pay">Paid</span><span class="tag">4 countries view!</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(5)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day water rv">
       <div class="day-pic"><img src="img/banner_terme.jpg" alt="day_terme_full" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -380,7 +413,9 @@
         </ul>
         <div class="tags"><span class="tag water">💧 Full water park day</span><span class="tag hours">🕘 09:00–21:00</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(6)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
   </div>
 </div></section>
@@ -411,7 +446,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=46.3635,14.0984&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Navigate to Bled</a>
         <div class="tags"><span class="tag free">Free lake stroll</span><span class="tag hours">🕘 Check-in from 15:00</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(7)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day highlight rv">
       <div class="day-pic"><img src="img/banner_bled.jpg" alt="day_island" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -429,7 +466,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=46.3685,14.0927&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Bled Island Boat Dock</a>
         <div class="tags"><span class="tag pay">Paid</span><span class="tag">The Bled experience</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(8)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day rv">
       <div class="day-pic"><img src="img/day_bohinj.jpg" alt="day_bohinj" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -447,7 +486,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=46.2851,13.8878&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Lake Bohinj / Vogel Cable Car</a>
         <div class="tags"><span class="tag pay">Cable car paid</span><span class="tag free">Lake swim free</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(9)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day rv">
       <div class="day-pic"><img src="img/day_vintgar.jpg" alt="day_vintgar" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -464,7 +505,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=46.404,14.081&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Vintgar Gorge entrance</a>
         <div class="tags"><span class="tag pay">Both paid</span><span class="tag">Go early!</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(10)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day highlight rv">
       <div class="day-pic"><img src="img/day_worthersee.jpg" alt="day_worthersee" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -481,7 +524,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=46.6237,14.3128&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Wörthersee / Minimundus, Klagenfurt</a>
         <div class="tags"><span class="tag pay">Minimundus paid</span><span class="tag">🇦🇹 Austria day</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(11)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day rv">
       <div class="day-pic"><img src="img/day_postojna.jpg" alt="day_postojna" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -498,7 +543,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=45.7831,14.2054&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Postojna Cave</a>
         <div class="tags"><span class="tag pay">Cave/Ljubljana paid</span><span class="tag free">Lake day free</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(12)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
   </div>
 </div></section>
@@ -529,7 +576,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=47.4979,19.0402&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Budapest, District V</a>
         <div class="tags"><span class="tag">Drive day</span><span class="tag hours">🕘 Check-in from 15:00</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(13)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day water rv">
       <div class="day-pic"><img src="img/day_aquaworld.jpg" alt="day_aquaworld" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -546,7 +595,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=47.5694,19.109&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Aquaworld Budapest</a>
         <div class="tags"><span class="tag pay">Paid</span><span class="tag water">💧 Water park day</span><span class="tag hours">🕘 07:00–21:00</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(14)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day rv">
       <div class="day-pic"><img src="img/day_bastion.jpg" alt="day_bastion" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -563,7 +614,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=47.4963,19.0398&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Fisherman's Bastion, Buda</a>
         <div class="tags"><span class="tag free">Bastion free</span><span class="tag pay">Baths paid</span><span class="tag water">♨️ Thermal</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(15)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day rv">
       <div class="day-pic"><img src="img/day_margaret.jpg" alt="day_margaret" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -580,7 +633,9 @@
         <a class="wazebtn" target="_blank" rel="noopener" href="https://waze.com/ul?ll=47.5296,19.0477&navigate=yes"><svg viewBox="0 0 24 24"><path d="M21.4 2.6a1 1 0 0 0-1.1-.2L3.3 9.9c-1 .4-.9 1.9.1 2.2l6.7 2.1 2.1 6.7c.3 1 1.8 1.1 2.2.1l7.7-17a1 1 0 0 0-.7-1.4z"/></svg>Margaret Island, Budapest</a>
         <div class="tags"><span class="tag free">Island free</span><span class="tag">Last full day!</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(16)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
     <article class="day travel rv">
       <div class="day-pic"><img src="img/day_arrive.jpg" alt="day_depart" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -595,7 +650,9 @@
         </ul>
         <div class="tags"><span class="tag">Departure day</span></div>
       </div>
-    </article>
+    
+        <button class="riddle-btn" onclick="openRiddle(17)" title="Riddle for this stop">🧩 Riddle</button>
+      </article>
 
   </div>
 </div></section>
@@ -1137,7 +1194,104 @@ document.addEventListener('mouseover',async e=>{
   }
 });
 document.addEventListener('mouseleave',e=>{if(e.target.closest&&e.target.closest('.wiki-tip'))hidePop();},true);
+
+// ── RIDDLES ──────────────────────────────────────────────────────────────
+const RIDDLES=[{"easy": {"q": "We fly through the sky and land in a big city. What do we do first?", "a": "Pick up our car!"}, "medium": {"q": "This city has a famous river, a castle on a hill, and is the start of our adventure. Which city?", "a": "Budapest"}, "hard": {"q": "Budapest sits on two sides of a river. What is the river called?", "a": "The Danube"}}, {"easy": {"q": "This magical lake is always warm — even in winter! What makes it warm?", "a": "It's a thermal lake — heated from underground!"}, "medium": {"q": "Lake Hévíz is the largest natural thermal lake in the world. What colour are the famous flowers that float on it?", "a": "Pink and white lotus flowers"}, "hard": {"q": "The baroque palace we're visiting was built by the Festetics family. What famous library is inside it?", "a": "The Helikon Library"}}, {"easy": {"q": "This huge lake is called the 'sea of Hungary' because it's so big. Can you guess its name?", "a": "Lake Balaton!"}, "medium": {"q": "We're visiting a peninsula on Lake Balaton shaped like a thumb. It's famous for lavender. What's it called?", "a": "Tihany Peninsula"}, "hard": {"q": "Tihany Abbey was founded in 1055. Its founding charter contains the oldest surviving words in which language?", "a": "The Hungarian language!"}}, {"easy": {"q": "We're crossing into a new country today. The flag has blue, white and red with a mountain. Which country?", "a": "Slovenia!"}, "medium": {"q": "Terme 3000 has pools with water that is almost black. What makes the water that colour?", "a": "Peat and thermal minerals"}, "hard": {"q": "Before driving on Slovenian motorways you need a special sticker. What is it called in Slovenian?", "a": "Vinjeta"}}, {"easy": {"q": "Today we go down the world's tallest indoor slide — 64 metres through a mountain! What city is it in?", "a": "Graz, Austria!"}, "medium": {"q": "The Schlossberg hill in Graz was never conquered in war. What sits on top of it?", "a": "A famous clock tower"}, "hard": {"q": "Graz is the second-largest city in Austria and capital of which state?", "a": "Styria (Steiermark)"}}, {"easy": {"q": "From a tall tower today we can see FOUR countries at once. Can you name two of them?", "a": "Slovenia, Hungary, Croatia, Austria"}, "medium": {"q": "Ptuj is the oldest recorded city in Slovenia. What was its Roman name?", "a": "Poetovio"}, "hard": {"q": "The Vinarium tower is 53m tall. The region makes a famous white wine grape. What is it?", "a": "Welschriesling (Laški Rizling)"}}, {"easy": {"q": "Today is a FULL day at the water park! How many pools does Terme 3000 have?", "a": "22 pools!"}, "medium": {"q": "The thermal water at Terme 3000 comes from underground. How deep is the borehole?", "a": "About 1,500 metres!"}, "hard": {"q": "Prekmurje's famous layered pastry has poppy seeds, walnuts, apple and cottage cheese. What is it called?", "a": "Prekmurska gibanica"}}, {"easy": {"q": "Lake Bled has a tiny island in the middle with a church. How do you get to the island?", "a": "By a traditional wooden boat called a pletna!"}, "medium": {"q": "Bled is famous for a delicious cream cake invented at the hotel by the lake in 1953. What is it called?", "a": "Kremšnita"}, "hard": {"q": "Lake Bled was formed by a glacier. Slovenia's highest mountain is above it. What is it called?", "a": "Triglav (2,864m)"}}, {"easy": {"q": "On the island church there's a special bell. If you ring it your wish comes true! How many steps to the church?", "a": "99 steps!"}, "medium": {"q": "The traditional boat to Bled Island is called a pletna. What are the boatmen called?", "a": "Pletnarji"}, "hard": {"q": "Bled Castle is perched 130m above the lake. It was first mentioned in written records in which year?", "a": "1011 AD"}}, {"easy": {"q": "Lake Bohinj is so clear and turquoise. Can you name the national park it's inside?", "a": "Triglav National Park!"}, "medium": {"q": "The Vogel cable car takes us to 1,535m. What mountain range can you see at the top?", "a": "The Julian Alps"}, "hard": {"q": "Lake Bohinj is connected to Lake Bled by a river. What is the river's name?", "a": "The Sava Bohinjka"}}, {"easy": {"q": "Vintgar Gorge has a 1.6km wooden path over a river. What colour is the water?", "a": "Emerald green!"}, "medium": {"q": "The gorge ends at a waterfall. What river runs through Vintgar?", "a": "The Radovna river"}, "hard": {"q": "Vintgar Gorge was opened in 1893. Who discovered it?", "a": "Mayor Lovro Tomat and surveyor Benedikt Lergetporer"}}, {"easy": {"q": "Today we visit a park with 170 tiny models of famous buildings from all over the world. What is it called?", "a": "Minimundus!"}, "medium": {"q": "Wörthersee reaches 26°C in summer. Which Austrian city is it next to?", "a": "Klagenfurt"}, "hard": {"q": "All Minimundus models are built at the same scale. What scale is it?", "a": "1:25 scale"}}, {"easy": {"q": "Postojna Cave has a little electric train inside. It's 10°C in there. What blind animal lives only in this cave?", "a": "The human fish (olm) — a blind salamander!"}, "medium": {"q": "Ljubljana has a famous bridge with four dragon statues. What is it called?", "a": "Dragon Bridge (Zmajski most)"}, "hard": {"q": "Postojna Cave has 24km of passages. The cave was first explored in which century?", "a": "The 13th century (1213)"}}, {"easy": {"q": "Budapest is two cities joined! Can you name both halves?", "a": "Buda and Pest!"}, "medium": {"q": "Budapest's parliament building was completed in 1904. How many rooms does it have?", "a": "691 rooms!"}, "hard": {"q": "The Chain Bridge was the first permanent bridge across the Danube. In which year was it opened?", "a": "1849"}}, {"easy": {"q": "Today is our big water park day! Aquaworld has 11 slides. What's your favourite kind of water slide?", "a": "Any answer wins — it's going to be amazing!"}, "medium": {"q": "Budapest has more thermal springs than any other capital city. How many registered springs does it have?", "a": "Over 100 springs and wells"}, "hard": {"q": "Which famous Hungarian mathematician is Aquaworld near — and has a street named after him in Budapest?", "a": "John von Neumann"}}, {"easy": {"q": "Fisherman's Bastion has 7 towers. Each represents one of the 7 Magyar tribes. Can you count them from the terrace?", "a": "7 towers!"}, "medium": {"q": "Széchenyi Baths has outdoor pools where people play chess in hot water. What is the water temperature?", "a": "About 38°C"}, "hard": {"q": "Matthias Church has a diamond-patterned roof. Which king was famously coronated there in 1867?", "a": "Franz Joseph I"}}, {"easy": {"q": "Margaret Island has a magic fountain that plays music and sprays water. What will happen to Aviv?", "a": "He'll get completely soaked — on purpose!"}, "medium": {"q": "Great Market Hall was built in 1897. What is the most famous street food you can eat there?", "a": "Lángos — fried dough with sour cream and cheese"}, "hard": {"q": "Margaret Island was a royal hunting ground. Which Hungarian princess is it named after?", "a": "Princess Margaret of the Árpád dynasty (1242–1271)"}}, {"easy": {"q": "Our amazing trip is over! How many countries did we visit?", "a": "3 countries — Hungary, Slovenia and Austria!"}, "medium": {"q": "We drove through 3 countries and stayed in 4 bases. How many nights was the whole trip?", "a": "17 nights!"}, "hard": {"q": "Can you name all 4 bases we stayed at, in order?", "a": "Hévíz → Moravske Toplice → Bled → Budapest"}}];
+let riddleIdx=0,riddleLevel='easy';
+function openRiddle(idx){riddleIdx=idx;document.getElementById('riddleModal').style.display='flex';renderRiddle();}
+function closeRiddle(){document.getElementById('riddleModal').style.display='none';}
+function setLevel(lvl){riddleLevel=lvl;document.querySelectorAll('.rlvl').forEach(b=>b.classList.toggle('active',b.dataset.lvl===lvl));renderRiddle();}
+function renderRiddle(){const r=RIDDLES[riddleIdx][riddleLevel];document.getElementById('riddleQ').textContent=r.q;document.getElementById('riddleA').style.display='none';document.getElementById('revealBtn').style.display='block';}
+function revealAnswer(){const r=RIDDLES[riddleIdx][riddleLevel];document.getElementById('riddleA').textContent='\u2705 '+r.a;document.getElementById('riddleA').style.display='block';document.getElementById('revealBtn').style.display='none';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeRiddle();closePhrases();}});
+
+// ── PHRASEBOOK ────────────────────────────────────────────────────────────
+const PHRASES={"HU": [{"phrase": "Köszönöm", "pronounce": "KUH-suh-nuhm", "meaning": "Thank you"}, {"phrase": "Kérem", "pronounce": "KAY-rem", "meaning": "Please"}, {"phrase": "Igen / Nem", "pronounce": "EE-gen / nem", "meaning": "Yes / No"}, {"phrase": "Helló / Szia", "pronounce": "HEL-loh / SEE-ah", "meaning": "Hello / Hi"}, {"phrase": "Viszontlátásra", "pronounce": "VEE-sont-lah-tash-ruh", "meaning": "Goodbye"}, {"phrase": "Hol a mosdó?", "pronounce": "hol ah MOSH-doh", "meaning": "Where is the toilet?"}, {"phrase": "Mennyibe kerül?", "pronounce": "MEN-yee-beh KEH-rool", "meaning": "How much?"}, {"phrase": "Segítség!", "pronounce": "SHEH-geet-shayg", "meaning": "Help!"}], "SL": [{"phrase": "Hvala", "pronounce": "HVAH-lah", "meaning": "Thank you"}, {"phrase": "Prosim", "pronounce": "PROH-seem", "meaning": "Please"}, {"phrase": "Da / Ne", "pronounce": "dah / neh", "meaning": "Yes / No"}, {"phrase": "Živjo", "pronounce": "ZHEEV-yoh", "meaning": "Hello / Hi"}, {"phrase": "Nasvidenje", "pronounce": "nas-VEE-den-yeh", "meaning": "Goodbye"}, {"phrase": "Kje je stranišče?", "pronounce": "kyeh yeh STRAH-neesh-cheh", "meaning": "Where is the toilet?"}, {"phrase": "Koliko stane?", "pronounce": "KOH-lee-koh STAH-neh", "meaning": "How much?"}, {"phrase": "Na pomoč!", "pronounce": "nah POH-moch", "meaning": "Help!"}], "DE": [{"phrase": "Danke", "pronounce": "DAHN-keh", "meaning": "Thank you"}, {"phrase": "Bitte", "pronounce": "BIT-teh", "meaning": "Please"}, {"phrase": "Ja / Nein", "pronounce": "yah / nine", "meaning": "Yes / No"}, {"phrase": "Hallo", "pronounce": "HAH-loh", "meaning": "Hello"}, {"phrase": "Auf Wiedersehen", "pronounce": "owf VEE-der-zayn", "meaning": "Goodbye"}, {"phrase": "Wo ist die Toilette?", "pronounce": "voh ist dee toy-LET-teh", "meaning": "Where is the toilet?"}, {"phrase": "Was kostet das?", "pronounce": "vas KOS-tet das", "meaning": "How much?"}, {"phrase": "Hilfe!", "pronounce": "HIL-feh", "meaning": "Help!"}]};
+function openPhrases(){document.getElementById('phraseModal').style.display='flex';}
+function closePhrases(){document.getElementById('phraseModal').style.display='none';}
+function setLang(lng){document.querySelectorAll('.plng').forEach(b=>b.classList.toggle('active',b.dataset.lng===lng));const rows=PHRASES[lng].map(p=>'<tr>'+'<td style="color:#e2e8f0;font-weight:600;padding:.5rem .75rem">'+escH(p.phrase)+'</td>'+'<td style="color:#94a3b8;font-size:.85rem;padding:.5rem .75rem;font-style:italic">'+escH(p.pronounce)+'</td>'+'<td style="color:#7dd3fc;padding:.5rem .75rem">'+escH(p.meaning)+'</td>'+'</tr>').join('');document.getElementById('phraseRows').innerHTML=rows;}
+
+// ── DAY COUNTER ───────────────────────────────────────────────────────────
+(function(){const start=new Date('2026-08-13'),end=new Date('2026-08-30');const today=new Date();today.setHours(0,0,0,0);const dc=document.getElementById('daycount');const df=document.getElementById('dayfill');const dchk=document.getElementById('daycheck');if(!dc)return;if(today<start){const diff=Math.ceil((start-today)/864e5);dc.textContent='\u23f3 '+diff+' day'+(diff===1?'':'s')+' until our trip!';df.style.width='0%';dchk.textContent='Aug 13 → 30, 2026';}else if(today>end){dc.textContent='\u2708\ufe0f Trip complete — what a trip!';df.style.width='100%';dchk.textContent='17 nights done \U0001f389';}else{const dayNum=Math.ceil((today-start)/864e5)+1;const pct=Math.round((dayNum/17)*100);dc.textContent='\U0001f31f Day '+dayNum+' of 17';df.style.width=pct+'%';dchk.textContent=pct+'% through the adventure';}})();
 </script>
+
+
+<!-- ===== RIDDLE MODAL ===== -->
+<div id="riddleModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.7);align-items:center;justify-content:center;">
+  <div style="background:#1e293b;border-radius:16px;max-width:480px;width:90%;padding:2rem;position:relative;box-shadow:0 25px 60px rgba(0,0,0,.5);">
+    <button onclick="closeRiddle()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:#94a3b8;font-size:1.4rem;cursor:pointer;">✕</button>
+    <div style="text-align:center;font-size:2rem;margin-bottom:.5rem;">🧩</div>
+    <h3 style="color:#f1f5f9;text-align:center;margin:0 0 1.5rem;font-size:1.1rem;">Riddle for this stop</h3>
+    <!-- level selector -->
+    <div style="display:flex;gap:.5rem;justify-content:center;margin-bottom:1.5rem;">
+      <button class="rlvl active" data-lvl="easy" onclick="setLevel('easy')">😊 Aviv</button>
+      <button class="rlvl" data-lvl="medium" onclick="setLevel('medium')">🤔 Inbar</button>
+      <button class="rlvl" data-lvl="hard" onclick="setLevel('hard')">🧠 Noga</button>
+    </div>
+    <div id="riddleQ" style="background:#0f172a;border-radius:10px;padding:1.25rem;color:#e2e8f0;font-size:1rem;line-height:1.6;min-height:80px;"></div>
+    <button id="revealBtn" onclick="revealAnswer()" style="margin-top:1.2rem;width:100%;padding:.75rem;background:#6366f1;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;">Reveal Answer 👀</button>
+    <div id="riddleA" style="display:none;margin-top:1rem;background:#064e3b;border-radius:10px;padding:1.25rem;color:#6ee7b7;font-size:1rem;line-height:1.6;"></div>
+  </div>
+</div>
+
+
+<!-- ===== PHRASEBOOK MODAL ===== -->
+<div id="phraseModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.7);align-items:center;justify-content:center;">
+  <div style="background:#1e293b;border-radius:16px;max-width:520px;width:92%;padding:2rem;position:relative;box-shadow:0 25px 60px rgba(0,0,0,.5);max-height:90vh;overflow-y:auto;">
+    <button onclick="closePhrases()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:#94a3b8;font-size:1.4rem;cursor:pointer;">✕</button>
+    <div style="text-align:center;font-size:2rem;margin-bottom:.25rem;">🗣️</div>
+    <h3 style="color:#f1f5f9;text-align:center;margin:0 0 1.25rem;font-size:1.1rem;">Survival Phrases</h3>
+    <div style="display:flex;gap:.5rem;justify-content:center;margin-bottom:1.25rem;">
+      <button class="plng active" data-lng="HU" onclick="setLang('HU')">🇭🇺 Hungarian</button>
+      <button class="plng" data-lng="SL" onclick="setLang('SL')">🇸🇮 Slovenian</button>
+      <button class="plng" data-lng="DE" onclick="setLang('DE')">🇦🇹 German</button>
+    </div>
+    <div id="phraseContent">
+      <table style="width:100%;border-collapse:collapse;">
+        <thead><tr>
+          <th style="color:#64748b;text-align:left;padding:.4rem .75rem;font-size:.8rem;border-bottom:1px solid #334155;">Phrase</th>
+          <th style="color:#64748b;text-align:left;padding:.4rem .75rem;font-size:.8rem;border-bottom:1px solid #334155;">Say it like…</th>
+          <th style="color:#64748b;text-align:left;padding:.4rem .75rem;font-size:.8rem;border-bottom:1px solid #334155;">Meaning</th>
+        </tr></thead>
+        <tbody id="phraseRows">
+          <tr>
+          <td style="color:#e2e8f0;font-weight:600;padding:.5rem .75rem;">Köszönöm</td>
+          <td style="color:#94a3b8;font-size:.85rem;padding:.5rem .75rem;font-style:italic;">KUH-suh-nuhm</td>
+          <td style="color:#7dd3fc;padding:.5rem .75rem;">Thank you</td>
+        </tr><tr>
+          <td style="color:#e2e8f0;font-weight:600;padding:.5rem .75rem;">Kérem</td>
+          <td style="color:#94a3b8;font-size:.85rem;padding:.5rem .75rem;font-style:italic;">KAY-rem</td>
+          <td style="color:#7dd3fc;padding:.5rem .75rem;">Please</td>
+        </tr><tr>
+          <td style="color:#e2e8f0;font-weight:600;padding:.5rem .75rem;">Igen / Nem</td>
+          <td style="color:#94a3b8;font-size:.85rem;padding:.5rem .75rem;font-style:italic;">EE-gen / nem</td>
+          <td style="color:#7dd3fc;padding:.5rem .75rem;">Yes / No</td>
+        </tr><tr>
+          <td style="color:#e2e8f0;font-weight:600;padding:.5rem .75rem;">Helló / Szia</td>
+          <td style="color:#94a3b8;font-size:.85rem;padding:.5rem .75rem;font-style:italic;">HEL-loh / SEE-ah</td>
+          <td style="color:#7dd3fc;padding:.5rem .75rem;">Hello / Hi (informal)</td>
+        </tr><tr>
+          <td style="color:#e2e8f0;font-weight:600;padding:.5rem .75rem;">Viszontlátásra</td>
+          <td style="color:#94a3b8;font-size:.85rem;padding:.5rem .75rem;font-style:italic;">VEE-sont-lah-tash-ruh</td>
+          <td style="color:#7dd3fc;padding:.5rem .75rem;">Goodbye</td>
+        </tr><tr>
+          <td style="color:#e2e8f0;font-weight:600;padding:.5rem .75rem;">Hol a mosdó?</td>
+          <td style="color:#94a3b8;font-size:.85rem;padding:.5rem .75rem;font-style:italic;">hol ah MOSH-doh</td>
+          <td style="color:#7dd3fc;padding:.5rem .75rem;">Where is the toilet?</td>
+        </tr><tr>
+          <td style="color:#e2e8f0;font-weight:600;padding:.5rem .75rem;">Mennyibe kerül?</td>
+          <td style="color:#94a3b8;font-size:.85rem;padding:.5rem .75rem;font-style:italic;">MEN-yee-beh KEH-rool</td>
+          <td style="color:#7dd3fc;padding:.5rem .75rem;">How much does it cost?</td>
+        </tr><tr>
+          <td style="color:#e2e8f0;font-weight:600;padding:.5rem .75rem;">Segítség!</td>
+          <td style="color:#94a3b8;font-size:.85rem;padding:.5rem .75rem;font-style:italic;">SHEH-geet-shayg</td>
+          <td style="color:#7dd3fc;padding:.5rem .75rem;">Help!</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
