@@ -71,7 +71,7 @@ window.MAPDATA = {
 
   /* ============================ Base 3 — Bled ============================ */
   base3: {
-    hotel: { name: "Bled apartment (Mlino / lakeside area)", lat: 46.3635, lng: 14.0984 },
+    hotel: { name: "Toni's House (Breg)", lat: 46.395403, lng: 14.126659 },
     pois: [
       { name:"Bled Island — Pletna Boat", category:"attraction", lat:46.3685, lng:14.0927, drive_min:3,
         desc:"Row to the iconic island church on a traditional pletna flat-boat. Cash only (€20 adult · €10 child 4–12 · Aviv ~€10). Ring the wishing bell at the top.",
